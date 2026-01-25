@@ -228,6 +228,10 @@ footer {
 }
 
 /* Typing Effect */
+.typing-effect {
+    white-space: pre-wrap;
+}
+
 .typing-effect::after {
     content: "█";
     animation: blink 1s infinite;
