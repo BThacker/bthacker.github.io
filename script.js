@@ -1,6 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
     const typingElement = document.querySelector('.typing-effect');
-    const textToType = ""; // Unused
     const command = "cat about.json";
     const aboutData = `{
     "name": "Brandon Thacker",
@@ -21,7 +20,8 @@ document.addEventListener('DOMContentLoaded', () => {
         "Horror"
     ],
     "updated": "January, 2026"
-}`;
+}
+`;
     // const fullText = "cat about.txt \n test 123";
     let charIndex = 0;
 
