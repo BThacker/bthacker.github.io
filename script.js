@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     const typingElement = document.querySelector('.typing-effect');
-    const command = "cat about.json";
+    const command = "cat about_me.json";
     const aboutData = `{
     "name": "Brandon Thacker",
     "location": "Atlanta, Georgia",
