@@ -40,12 +40,16 @@ body {
   /* ensure content can grow taller than the viewport */
   height: auto !important;
   overflow: visible !important;
+  position: relative; /* ensure absolute children are positioned to this container */
 }
 
 .terminal {
   /* use min-height so it can grow beyond one viewport */
   min-height: 100vh;
   overflow: visible;
+  position: relative;
+  z-index: 2;             /* must be greater than canvas z-index */
+  background: transparent;/* allow the matrix to show through where desired */
 }
 
 /* CRT Screen Effect */
@@ -276,6 +280,18 @@ footer {
   color: var(--dim-color);
 }
 
+footer p {
+    margin: 0;             /* remove default spacing */
+    padding: 0;
+    line-height: 1.15;     /* tighten vertical spacing inside each line */
+    color: inherit;
+    font-size: 0.95rem;
+}
+
+footer p + p {
+    margin-top: 4px;       /* small gap between consecutive lines; adjust as needed */
+}
+
 /* Typing Effect */
 .typing-effect {
   white-space: pre-wrap;
@@ -301,4 +317,16 @@ footer {
 .hidden {
   /* Initially hidden for JS to reveal; leave visible by default for testing. */
   display: block;
+}
+
+/* Matrix background canvas behind the terminal */
+#matrix-canvas {
+  position: absolute;
+  inset: 0;               /* top:0; right:0; bottom:0; left:0 */
+  width: 100%;
+  height: 100%;
+  z-index: 0;             /* behind the terminal (terminal z-index should be higher) */
+  pointer-events: none;   /* clicks pass through */
+  opacity: 0.85;
+  mix-blend-mode: screen;
 }
